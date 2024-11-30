@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
@@ -15,8 +16,8 @@ app.use((req, res, next) => {
 app.use('/', routes);
 
 mongoose.connect(DB.DB_URL, DB.DB_SETTINGS)
-    .then(() => console.log(`Conectado no MongoDB: ${DB.DB_URL}`))
-    .catch(err => console.log(`Erro ao conectar no MongoDB: ${err}`));
+    .then(() => console.log(`Conectado ao MongoDB: ${DB.DB_URL}`))
+    .catch(err => console.log(`Erro ao conectar ao MongoDB: ${err}`));
 
 const porta = process.env.PORT || 3001;
 
